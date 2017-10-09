@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:minHeight="80dp"
+    android:minWidth="120dp"
+    android:orientation="vertical"
+    android:background="@color/alpha_20_white"
+    android:padding="10dp" >
+
+    <com.jaydenxiao.common.loading_dialog.AVLoadingIndicatorView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/indicator"
+        app:indicatorName="BallPulseIndicator"
+        app:indicatorColor="@android:color/white"
+        style="@style/AVLoadingIndicatorView" />
+
+</LinearLayout>

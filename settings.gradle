@@ -1,0 +1,13 @@
+
+include ':app', ':common', ':FlycoTabLayout_Lib'
+
+gradle.ext.compileSdkVersion = 26
+gradle.ext.buildToolsVersion = "26.0.2"
+gradle.ext.minSdkVersion = 15
+gradle.ext.targetSdkVersion = 26
+//java8
+gradle.ext.sourceCompatibility=1.8
+gradle.ext.targetCompatibility=1.8
+
+//Android中support版本
+gradle.ext.support_version="26.+"
