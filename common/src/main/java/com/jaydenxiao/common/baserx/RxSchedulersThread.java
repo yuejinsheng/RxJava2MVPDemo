@@ -8,11 +8,11 @@ import io.reactivex.schedulers.Schedulers;
  * RxJava调度管理
  *  主线程和子线程的调度
  */
-public class RxSchedulers {
+public class RxSchedulersThread {
 
     public static <T> ObservableTransformer<T, T> io_main() {
         return upstream -> upstream.subscribeOn(Schedulers.io())
-                .subscribeOn(AndroidSchedulers.mainThread());
+                .observeOn(AndroidSchedulers.mainThread());
         
     }
 

@@ -11,6 +11,4 @@ public interface BaseView {
 
     /** 绑定生命周期 **/
     <T> LifecycleTransformer<T> bindToLife();
-    void showError(String e);
-
 }

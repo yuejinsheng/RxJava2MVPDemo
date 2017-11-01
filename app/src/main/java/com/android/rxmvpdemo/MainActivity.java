@@ -9,9 +9,6 @@ import com.jaydenxiao.common.manager.ServiceManager;
 
 import java.util.List;
 
-import io.reactivex.annotations.NonNull;
-import io.reactivex.functions.Function;
-
 public class MainActivity extends BaseActivity<MainView,MainPresenter> implements MainView{
 
     @Override
@@ -22,26 +19,26 @@ public class MainActivity extends BaseActivity<MainView,MainPresenter> implement
     @Override
     public void initView() {
          //不需要mvp模式的直接在类中直接创建的
-          ServiceManager.create(ApiService.class).getBannerList("1").compose(RxHelper.<List<Banner>>handleResult())
-                  .map(new Function<List<Banner>, List<Banner>>() {
-                      @Override
-                      public List<Banner> apply(@NonNull List<Banner> banners) throws Exception {
-                          banners.set(0, new Banner());
-                          return banners;
-                      }
-                  }).subscribe(new RxSubscriber<List<Banner>>(this,false) {
-              @Override
+        ServiceManager.create(ApiService.class).getBannerList("1") 
+                .compose(RxHelper.<List<Banner>>handleResult())
+                .subscribe(new RxSubscriber<List<Banner>>(this,false) {
+             @Override
               protected void _onNext(List<Banner> banners) {
-                  ((TextView)findViewById(R.id.text)).setText(banners.get(0).toString());
+                ((TextView)findViewById(R.id.text)).setText(banners.get(0).toString());
               }
-
-              @Override
-              protected void _onError(String message) {
-
-              }
-          });
+                    /**
+                     * 这个方法可以重写，也可以不重写，看你子类的需求
+                     * @param message
+                     */
+                    @Override
+                    protected void _onError(String message) {
+                        super._onError(message);
+                        ((TextView)findViewById(R.id.text)).setText(message);
+                    }
+                });
+              
         /**
-         * 
+         * 需要mcp模式调用
          */
         //mPresenter.getBannerList("1");
     }

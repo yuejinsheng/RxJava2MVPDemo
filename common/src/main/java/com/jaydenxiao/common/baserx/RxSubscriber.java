@@ -5,9 +5,11 @@ import android.content.Context;
 import android.net.ParseException;
 
 import com.google.gson.JsonParseException;
+import com.jakewharton.retrofit2.adapter.rxjava2.HttpException;
 import com.jaydenxiao.common.R;
 import com.jaydenxiao.common.baseapp.BaseApplication;
 import com.jaydenxiao.common.commonutils.NetWorkUtils;
+import com.jaydenxiao.common.commonutils.ToastUitl;
 import com.jaydenxiao.common.commonwidget.LoadingDialog;
 
 import org.json.JSONException;
@@ -76,6 +78,7 @@ public abstract class RxSubscriber<T> extends DisposableObserver<T> {
     @Override
     protected void onStart() {
         super.onStart();
+        
         //打开对话框
         if (showDialog) {
             try {
@@ -98,7 +101,7 @@ public abstract class RxSubscriber<T> extends DisposableObserver<T> {
         //网络
         if (!NetWorkUtils.isNetConnected(BaseApplication.getAppContext())) {
             _onError(BaseApplication.getAppContext().getString(R.string.no_net));
-        } else if (e instanceof ServerException ) {  //服务器异常
+        } else if (e instanceof ServerException||e instanceof HttpException) {  //服务器异常
             _onError(e.getMessage());
 
         } else if (e instanceof SocketTimeoutException || e instanceof ConnectException){   //服务器超时
@@ -112,6 +115,8 @@ public abstract class RxSubscriber<T> extends DisposableObserver<T> {
 
     protected abstract void _onNext(T t);
 
-    protected abstract void _onError(String message);
+    protected  void _onError(String message){
+        ToastUitl.showLong(message);
+    }
 
 }

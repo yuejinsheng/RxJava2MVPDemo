@@ -216,10 +216,6 @@ public abstract class BaseActivity<V extends BaseView,T extends BasePresenter<V>
         return this.<T>bindToLifecycle();
     }
 
-    @Override
-    public void showError(String e) {
-        ToastUitl.showLong(e);
-    }
 
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {

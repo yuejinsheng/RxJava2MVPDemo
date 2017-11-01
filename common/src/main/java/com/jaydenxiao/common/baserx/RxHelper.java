@@ -29,7 +29,7 @@ public class RxHelper {
                     }
                     return Observable.error(new ServerException("请求失败"));
                 }
-            }).compose(RxSchedulers.io_main()); //调度
+            }).compose(RxSchedulersThread.io_main()); //调度
         };
     }
 

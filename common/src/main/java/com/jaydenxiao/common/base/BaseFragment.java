@@ -206,12 +206,6 @@ public abstract class BaseFragment<V extends BaseView,T extends BasePresenter<V>
     }
 
     @Override
-    public void showError(String e) {
-        ToastUitl.showLong(e);
-    }
-
-
-    @Override
     public void onDestroyView() {
         super.onDestroyView();
         if(mUnbinder != null) mUnbinder.unbind();
