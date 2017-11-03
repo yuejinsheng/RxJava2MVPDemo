@@ -35,7 +35,7 @@ public abstract class BasePresenter<V extends BaseView>{
      * 绑定subscriber 并且添加mCompositeDisposable进行内存泄露管理
      */
     public  <T> void createRxSubscriber(Observable<T> observable, RxSubscriber<T> subscriber){
-          observable.compose(mView.bindToLife())
+           observable.compose(mView.bindToLife())
                   .subscribe(subscriber);
           addSubscribe(subscriber);
     }
