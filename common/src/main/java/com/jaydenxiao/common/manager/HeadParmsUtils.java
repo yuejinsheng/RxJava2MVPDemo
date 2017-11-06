@@ -22,7 +22,7 @@ import java.util.Map;
  */
 public class HeadParmsUtils {
 
-    private static final String KEY = "32AD3958-8532-4C52-9D91-4D19EC4E474A";
+  
     
     /**
      *  获取公参 
@@ -41,7 +41,7 @@ public class HeadParmsUtils {
         hashMap.put("apiUid", apiUid);
         hashMap.put("channel", channel);
         transParms(hashMap);//加密参数
-        String sign = createLinkString(paraFilter(hashMap)) + KEY;
+        String sign = createLinkString(paraFilter(hashMap));
         sign = MD5.encryption(sign); //把所以的参数在加密
         hashMap.put("sign", sign);
         if(flag) {
