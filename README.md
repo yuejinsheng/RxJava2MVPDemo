@@ -1,0 +1,5 @@
+# RxJava2MVPDemo
+
+根据自己公司封装的一套请求网络框架代码，代码的核心主要在common的分支上，demo中主要标注mvp代码怎么使用，这里的框架你可以根据公司的需要在进行修改，有公共参数，
+有请求需要加密参数可以参考HeaderInterceptor+HeadParmsUtils这个类的拦截请求进行添加公共参数，有请求需要token拦截的可以ExGsonConverterFactory这个类进行
+判断token和后台返回参数失败的进行处理。
