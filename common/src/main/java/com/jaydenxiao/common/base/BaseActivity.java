@@ -14,7 +14,6 @@ import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.jaydenxiao.common.BuildConfig;
 import com.jaydenxiao.common.R;
 import com.jaydenxiao.common.baseapp.AppManager;
 import com.jaydenxiao.common.commonutils.TUtil;
@@ -23,7 +22,6 @@ import com.jaydenxiao.common.commonwidget.LoadingDialog;
 import com.jaydenxiao.common.commonwidget.StatusBarCompat;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
-import com.umeng.analytics.MobclickAgent;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -173,20 +171,6 @@ public abstract class BaseActivity<V extends BaseView,T extends BasePresenter<V>
         startActivity(intent);
     }
 
-    /** 开启浮动加载进度条 **/
-    public void startProgressDialog() {
-        LoadingDialog.showDialogForLoading(this);
-    }
-
-    /** 开启浮动加载进度条 **/
-    public void startProgressDialog(String msg) {
-        LoadingDialog.showDialogForLoading(this, msg, true);
-    }
-
-    /** 停止浮动加载进度条 **/
-    public void stopProgressDialog() {
-        LoadingDialog.cancelDialogForLoading();
-    }
 
     /** 短暂显示Toast提示(来自String) **/
     public void showShortToast(String text) {
@@ -197,16 +181,7 @@ public abstract class BaseActivity<V extends BaseView,T extends BasePresenter<V>
     public void showShortToast(int resId) {
         ToastUitl.showShort(resId);
     }
-
-    /** 网络访问错误提醒 **/
-    public void showNetErrorTip() {
-        ToastUitl.showToastWithImg(getText(R.string.net_error).toString(), R.drawable.ic_wifi_off);
-    }
-
-    public void showNetErrorTip(String error) {
-        ToastUitl.showToastWithImg(error, R.drawable.ic_wifi_off);
-    }
-
+    
     public void setNeedConfirmAppExit(boolean needConfirmAppExit) {
         isNeedConfirmAppExit = needConfirmAppExit;
     }
@@ -240,20 +215,20 @@ public abstract class BaseActivity<V extends BaseView,T extends BasePresenter<V>
     protected void onResume() {
         super.onResume();
         //debug版本不统计crash
-        if (!BuildConfig.LOG_DEBUG) {
-            //友盟统计
-            MobclickAgent.onResume(this);
-        }
+           /* if (!BuildConfig.LOG_DEBUG) {
+                //友盟统计
+                MobclickAgent.onResume(this);
+            }*/
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         //debug版本不统计crash
-        if (!BuildConfig.LOG_DEBUG) {
+     /*   if (!BuildConfig.LOG_DEBUG) {
             //友盟统计
             MobclickAgent.onPause(this);
-        }
+        }*/
     }
 
     @Override
