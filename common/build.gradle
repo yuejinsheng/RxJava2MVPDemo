@@ -62,20 +62,7 @@ dependencies {
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.26'
     //打印日志
     compile 'com.orhanobut:logger:1.13'
-    //友盟统计
-    compile 'com.umeng.analytics:analytics:latest.integration'
-    //Bugly
-    compile 'com.tencent.bugly:crashreport:latest.release'
-    //分享
-    compile files('libs/MobCommons-2017.0608.1618.jar')
-    compile files('libs/MobTools-2017.0608.1618.jar')
-    compile files('libs/ShareSDK-Core-3.0.0.jar')
-    compile files('libs/ShareSDK-QQ-3.0.0.jar')
-    compile files('libs/ShareSDK-QZone-3.0.0.jar')
-    compile files('libs/ShareSDK-SinaWeibo-3.0.0.jar')
-    compile files('libs/ShareSDK-Wechat-3.0.0.jar')
-    compile files('libs/ShareSDK-Wechat-Core-3.0.0.jar')
-    compile files('libs/ShareSDK-Wechat-Moments-3.0.0.jar')
+   
 }
 
 

@@ -40,7 +40,8 @@ public class ExGsonResponseBodyConverter<T> implements Converter<ResponseBody,T>
             JSONObject response = new JSONObject(value);
             int code = response.getInt("code");
             if (code == -100 || code == -101 || code == -102) { //Token过期
-                String cls =  "com.haibei.hbjr.module.user.login.LoginActivity";
+                //cls可以是token拦截过期跳转到登陆的页面
+                String cls =  "LoginActivity";
                 Context context = BaseApplication.getAppContext();
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName(context, cls));

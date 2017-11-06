@@ -25,19 +25,6 @@ import io.reactivex.observers.DisposableObserver;
  * Created by xsf
  * on 2016.09.10:16
  */
-/********************使用例子********************/
-/*_apiService.login(mobile, verifyCode)
-        .//省略
-        .subscribe(new RxSubscriber<User user>(mContext,false) {
-@Override
-public void _onNext(User user) {
-        // 处理user
-        }
-
-@Override
-public void _onError(String msg) {
-        ToastUtil.showShort(mActivity, msg);
-        });*/
 public abstract class RxSubscriber<T> extends DisposableObserver<T> {
 
     private Context mContext;

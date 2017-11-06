@@ -20,24 +20,6 @@ import com.jaydenxiao.common.baseapp.BaseApplication;
  */
 public class SharePref {
 
-    /** 登录类型 **/
-    public static final String IS_LOGIN = "is_login";
-
-    /** access_token **/
-    public static final String ACCESS_TOKEN = "accessToken";
-
-    /** api_uid **/
-    public static final String API_UID = "api_uid";
-
-    /** 用户信息 **/
-    public static final String USER_INFO = "user_info";
-
-    /** 是否为新手 **/
-    public static final String IS_NEW = "is_new";
-
-    /** 版本号 **/
-    public static final String VERSION = "version";
-
     public static void saveBoolean(String key, boolean value) {
        
         getSharedPreferences().edit().putBoolean(key, value).apply();
@@ -114,10 +96,6 @@ public class SharePref {
 
     public static void clear(){
         getSharedPreferences().edit().clear().apply();
-    }
-
-    public static String getAccessToken() {
-        return ACCESS_TOKEN;
     }
 
     /** Retrieve the package shared preferences object. **/

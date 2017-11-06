@@ -56,6 +56,7 @@ public enum RetrofitManager {
         if (mRetrofit == null) {
             initOkHttpClient();
             mRetrofit = new Retrofit.Builder().baseUrl(BaseConstant.BASEURL).client(mOkHttpClient)
+                    //ExGsonConverterFactory 这个是为了请求返回的参数进行拦截，进行处理
                     .addConverterFactory(ExGsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build();
@@ -94,6 +95,7 @@ public enum RetrofitManager {
                     okHttpBuilder
                             .cache(cache)
                             .addNetworkInterceptor(mRewriteCacheControlInterceptor)//网络读写缓存拦截器
+                            //HeaderInterceptor()这个类是为了处理请求带有公共参数，如果你们需要可以用这样的
                             .addInterceptor(new HeaderInterceptor())//添加头部监听(写入公共参数)
                             .addInterceptor(mRewriteCacheControlInterceptor)//添加读写缓存拦截器
                             .addInterceptor(logInterceptor)   //log打印

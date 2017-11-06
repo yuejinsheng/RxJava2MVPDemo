@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion gradle.ext.compileSdkVersion
-    buildToolsVersion gradle.ext.buildToolsVersion
+    compileSdkVersion 25
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.android.rxmvpdemo"
         minSdkVersion gradle.ext.minSdkVersion
@@ -27,6 +27,5 @@ dependencies {
         resolutionStrategy.force "com.android.support:appcompat-v7:${gradle.ext.support_version}",
                 "com.android.support:support-annotations:${gradle.ext.support_version}"
     }
-
     compile project(':common')
 }

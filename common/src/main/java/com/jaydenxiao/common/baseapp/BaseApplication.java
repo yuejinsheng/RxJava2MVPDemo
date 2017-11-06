@@ -21,8 +21,6 @@ public class BaseApplication extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         baseApplication = this;
-        //Bugly初始化
-        CrashReport.initCrashReport(getApplicationContext(), "7de4b44a34", false);
         
         //异常处理
        // initexception();
