@@ -8,7 +8,6 @@ import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
 import com.jaydenxiao.common.exception.Cockroach;
-import com.tencent.bugly.crashreport.CrashReport;
 
 /**
  * APPLICATION

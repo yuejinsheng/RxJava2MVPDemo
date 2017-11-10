@@ -4,8 +4,12 @@ import com.jaydenxiao.common.sharepref.SharePref;
 
 public class TokenUtits {
 
+  
+
     /** AccessToken **/
     public static String getToken() {
+        
+        
         return SharePref.getString(SharePref.ACCESS_TOKEN, "");
     }
 

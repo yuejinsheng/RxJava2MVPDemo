@@ -2,8 +2,6 @@ package com.jaydenxiao.common.security;
 
 
 
-import org.apache.commons.codec.binary.StringUtils;
-
 import java.security.SecureRandom;
 
 import javax.crypto.Cipher;
@@ -134,7 +132,7 @@ public class DESBase64Util {
         try {
             byte[] buf = decrypt(temp,
                     KEY.getBytes(ENCODING));
-            return StringUtils.newStringUtf8(buf);
+            return new String(buf, "UTF-8");
         } catch (Exception e) {
             e.printStackTrace();
         }

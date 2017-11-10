@@ -18,7 +18,6 @@ import com.jaydenxiao.common.R;
 import com.jaydenxiao.common.baseapp.AppManager;
 import com.jaydenxiao.common.commonutils.TUtil;
 import com.jaydenxiao.common.commonutils.ToastUitl;
-import com.jaydenxiao.common.commonwidget.LoadingDialog;
 import com.jaydenxiao.common.commonwidget.StatusBarCompat;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
@@ -129,7 +128,8 @@ public abstract class BaseActivity<V extends BaseView,T extends BasePresenter<V>
      public void setOnNavigationOnClickListener(OnNavigationOnClickListener listener){
          this.listener=listener;
      }
-
+    
+    
     /** 着色状态栏（4.4以上系统有效） **/
     protected void SetStatusBarColor() {
         StatusBarCompat.setStatusBarColor(this, ContextCompat.getColor(this, R.color.colorAccent));

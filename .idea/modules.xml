@@ -3,13 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FlycoTabLayout_Lib/FlycoTabLayout_Lib.iml" filepath="$PROJECT_DIR$/FlycoTabLayout_Lib/FlycoTabLayout_Lib.iml" />
-      <module fileurl="file://D:\LanRenDemo\RxJava2MVPDemo\FlycoTabLayout_Lib\FlycoTabLayout_Lib.iml" filepath="D:\LanRenDemo\RxJava2MVPDemo\FlycoTabLayout_Lib\FlycoTabLayout_Lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/RxJava2MVPDemo.iml" filepath="$PROJECT_DIR$/.idea/RxJava2MVPDemo.iml" />
       <module fileurl="file://D:\LanRenDemo\RxJava2MVPDemo\RxMVpDemo.iml" filepath="D:\LanRenDemo\RxJava2MVPDemo\RxMVpDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\LanRenDemo\RxJava2MVPDemo\app\app.iml" filepath="D:\LanRenDemo\RxJava2MVPDemo\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
-      <module fileurl="file://D:\LanRenDemo\RxJava2MVPDemo\common\common.iml" filepath="D:\LanRenDemo\RxJava2MVPDemo\common\common.iml" />
     </modules>
   </component>
 </project>

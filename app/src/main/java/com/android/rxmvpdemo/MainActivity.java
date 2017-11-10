@@ -1,5 +1,6 @@
 package com.android.rxmvpdemo;
 
+import android.view.View;
 import android.widget.TextView;
 
 import com.jaydenxiao.common.base.BaseActivity;
@@ -18,24 +19,47 @@ public class MainActivity extends BaseActivity<MainView,MainPresenter> implement
 
     @Override
     public void initView() {
-         //不需要mvp模式的直接在类中直接创建的
-        ServiceManager.create(ApiService.class).getBannerList("1") 
-                .compose(RxHelper.<List<Banner>>handleResult())
-                .subscribe(new RxSubscriber<List<Banner>>(this,false) {
-             @Override
-              protected void _onNext(List<Banner> banners) {
-                ((TextView)findViewById(R.id.text)).setText(banners.get(0).toString());
-              }
-                    /**
-                     * 这个方法可以重写，也可以不重写，看你子类的需求
-                     * @param message
-                     */
-                    @Override
-                    protected void _onError(String message) {
-                        super._onError(message);
-                        ((TextView)findViewById(R.id.text)).setText(message);
-                    }
-                });
+        //get
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //不需要mvp模式的直接在类中直接创建的
+                ServiceManager.create(ApiService.class).getBannerList("1")
+                        .compose(RxHelper.<List<Banner>>handleResult())
+                        .subscribe(new RxSubscriber<List<Banner>>(MainActivity.this,false) {
+                            @Override
+                            protected void _onNext(List<Banner> banners) {
+                                ((TextView)findViewById(R.id.text)).setText(banners.get(0).toString());
+                            }
+                            /**
+                             * 这个方法可以重写，也可以不重写，看你子类的需求
+                             * @param message
+                             */
+                            @Override
+                            protected void _onError(String message) {
+                                super._onError(message);
+                                ((TextView)findViewById(R.id.text)).setText(message);
+                            }
+                        });  
+            }
+        });
+        
+        //post
+        findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ServiceManager.create(ApiService.class).login("15827265972","yuejin1")
+                         .compose(RxHelper.<Object>handleResult())
+                        .subscribe(new RxSubscriber<Object>(MainActivity.this,false){
+
+                            @Override
+                            protected void _onNext(Object o) {
+                                ((TextView)findViewById(R.id.text)).setText(o.toString());
+                            }
+                        });
+            }
+        });
+     
               
         /**
          * 需要mcp模式调用
